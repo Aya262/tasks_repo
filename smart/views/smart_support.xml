@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- <record id='smart_support_action' model='ir.actions.act_window'>
+        <field name='name'>Smart support Action</field>
+        <field name="res_model">smart.support</field>
+        <field name="view_mode">tree,form</field>
+    </record> -->
+
+
+    <record id='smart_support_action' model='ir.actions.act_window'>
+        <field name="name">Smart support Action</field>
+        <field name="res_model">smart.support</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="Parent_smart_support" name="Smart Support"/>
+    <menuitem id="smart_support_menu1" name="Smart" parent="Parent_smart_support" action="smart_support_action"/> 
+    <menuitem id="Branches_menu" parent="base.menu_users" name="Branches" action="smart_support_action"/>
+
+    	
+
+    <record id="smart_tree" model="ir.ui.view">
+        <field name="name">Tree Smart</field>
+        <field name="model">smart.support</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="total_amount"/>
+                <field name="total_amount_with_tax"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="smart_form" model="ir.ui.view">
+        <field name="name">From Smart</field>
+        <field name="model">smart.support</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="total_amount"/>
+                    <field name="total_amount_with_tax"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo> 
